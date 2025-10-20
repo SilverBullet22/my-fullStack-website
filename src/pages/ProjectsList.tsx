@@ -38,7 +38,7 @@ const getPublicIdFromUrl = (url: string): string => {
 
   // 🔹 حذف صورة من Cloudinary
   const deleteImage = async (public_id: string) => {
-    const res = await fetch(`/api/delete-image/${public_id}`, {
+    const res = await fetch(`${api}/delete-image/${public_id}`, {
       method: "DELETE",
     });
 

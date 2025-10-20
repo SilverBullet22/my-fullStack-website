@@ -14,7 +14,6 @@ const Search: React.FC = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState('newest');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const navigate = useNavigate();
   const {projects,loading, metadata} = useProjects()
 
  

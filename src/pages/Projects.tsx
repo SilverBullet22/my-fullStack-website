@@ -8,8 +8,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const Projects: React.FC = () => {
-    const navigate = useNavigate();
-  
   const [activeFilter, setActiveFilter] = useState('الكل');
   const {projects, loading, metadata} = useProjects()
   const [categories, setCategories] = useState([]);

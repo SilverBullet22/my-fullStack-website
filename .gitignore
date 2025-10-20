@@ -14,18 +14,11 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Frontend
-frontend/node_modules/
-frontend/dist/
-frontend/dist-ssr
-frontend/*.local
-frontend/uploads/
-
-# Backend
-backend/node_modules/
-backend/dist/
-backend/dist-ssr
-backend/*.local
-backend/uploads/
+node_modules/
+dist/
+dist-ssr
+*.local
+uploads/
 
 # Editor directories and files
 .vscode/*

@@ -47,7 +47,7 @@ const ManageMetaData = () => {
     formData.append("file", file); // ملف PDF
     formData.append("oldPublicId", data.cv.public_id); // اختياري
 
-    const res = await fetch(`/api/upload-pdf`, {
+    const res = await fetch(`${api}/upload-pdf`, {
       method: "POST",
       body: formData,
     });

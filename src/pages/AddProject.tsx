@@ -9,6 +9,7 @@ import FeaturedToggle from '../components/FeaturedToggle';
 import { useToast } from '../contexts/Toast';
 import GitHubRepoSelector from '../components/GitHubRepoSelector';
 import { useProjects } from '../contexts/ProjectsContext';
+const api = import.meta.env.VITE_API_URL
 
 const AddProject = () => {
   const { metadata, loading } = useProjects()
@@ -71,8 +72,6 @@ const AddProject = () => {
 
   // 🔹 دالة لضغط الصور
   const compressImage = async (file: File): Promise<File> => {
-    console.log("uty", bytesToMB(file.size))
-
     try {
       if(bytesToMB(file.size) < 1) return file
       return await imageCompression(file, {
@@ -99,7 +98,7 @@ const AddProject = () => {
 
     const formData = new FormData();
     formData.append("file", compressedFile);
-    const response = await fetch(`/upload-image`, {
+    const response = await fetch(`${api}/upload-image`, {
       method: "POST",
       body: formData,
     });

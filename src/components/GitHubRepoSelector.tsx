@@ -17,34 +17,33 @@ const GitHubRepoSelector: React.FC<Props> = ({ value, onChange }) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchRepos = async () => {
-      try {
-        setLoading(true);
-        setError(null);
+  const fetchRepos = async () => {
+    try {
+      setLoading(true);
+      setError(null);
 
-        const username = import.meta.env.VITE_GITHUB_USERNAME;
-        const token = import.meta.env.VITE_GITHUB_TOKEN;
-        
-        const response = await fetch(`https://api.github.com/users/${username}/repos`, {
-          headers: {
-            Authorization: `token ${token}`,
-          },
-        });
-        console.log("token", response.json())
+      const username = import.meta.env.VITE_GITHUB_USERNAME;
+      const token = import.meta.env.VITE_GITHUB_TOKEN;
 
+      const response = await fetch(`https://api.github.com/users/${username}/repos`, {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      });
 
-        if (!response.ok) throw new Error("فشل في جلب المستودعات");
-        const data = await response.json();
-        setRepos(data);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+      if (!response.ok) throw new Error("فشل في جلب المستودعات");
 
-    fetchRepos();
-  }, []);
+      const data = await response.json();
+      setRepos(data);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchRepos();
+}, []);
 
   return (
     <div className="space-y-2">

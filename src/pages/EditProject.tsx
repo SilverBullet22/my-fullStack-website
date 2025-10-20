@@ -129,7 +129,7 @@ const [allImages, setAllImages] = useState<{
       const formData = new FormData();
       formData.append("file", compressedFile);
 
-      const response = await fetch(`/api/upload-image`, {
+      const response = await fetch(`${api}/upload-image`, {
         method: "POST",
         body: formData,
       });
@@ -153,7 +153,7 @@ const [allImages, setAllImages] = useState<{
 
   const deleteImageFromCloudinary = async (public_id: string) => {
     try {
-      await fetch(`/api/delete-image/${public_id}`, {
+      await fetch(`${api}/delete-image/${public_id}`, {
         method: "DELETE",
       });
     } catch (err) {

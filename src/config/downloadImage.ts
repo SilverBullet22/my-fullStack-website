@@ -14,7 +14,6 @@ export const downloadImages = async (imageUrls: string[], zipFileName: string = 
       const fileName = url.split("/").pop()?.split("?")[0] || `image_${i + 1}.jpg`;
 
       zip.file(fileName, blob);
-      console.log(` أضفنا الصورة ${i + 1}: ${fileName}`);
     } catch (error) {
       console.error(`خطأ أثناء إضافة الصورة ${i + 1}:`, error);
     }

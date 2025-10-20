@@ -87,9 +87,6 @@ app.delete("/delete-image/:public_id", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("✅ Backend working on Vercel!");
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
