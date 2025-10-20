@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@import "tailwindcss/utilities";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@font-face {
+  font-family: 'NotoKufiArabic';
+  src: url('/src/assets/fonts/NotoKufiArabic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoKufiArabic';
+  src: url('/src/assets/fonts/NotoKufiArabic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoKufiArabic';
+  src: url('/src/assets/fonts/NotoKufiArabic-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoKufiArabic';
+  src: url('/src/assets/fonts/NotoKufiArabic-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoKufiArabic';
+  src: url('/src/assets/fonts/NotoKufiArabic-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  --color-primary-950: #1e293b;
+
+  --color-accent-50: #ecfdf5;
+  --color-accent-100: #d1fae5;
+  --color-accent-200: #a7f3d0;
+  --color-accent-300: #6ee7b7;
+  --color-accent-400: #34d399;
+  --color-accent-500: #10b981;
+  --color-accent-600: #059669;
+  --color-accent-700: #047857;
+  --color-accent-800: #065f46;
+  --color-accent-900: #064e3b;
+
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+  --font-sans: 'NotoKufiArabic', ui-sans-serif, system-ui;
+
+}
+
+@layer base {
+  html, body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+  }
+}
+
+/* ===== تعريف الخلفيات الخاصة ===== */
+@layer utilities {
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, var(--color-primary-950) 0%, #0f172a 50%, var(--color-primary-950) 100%);
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(var(--tw-gradient-stops));
+  }
+
+  .bg-gradient-conic {
+    background: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+  }
+
+  /* ===== تعريف الأنيميشنات ===== */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
+  .animate-slide-up { animation: slideUp 0.5s ease-out; }
+  .animate-pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+  @keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+input, textarea, select, button {
+  outline: none;
+}
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+::-webkit-scrollbar {
+  height: 8px; /* للتمرير الأفقي */
+  width: 8px;  /* للتمرير العمودي */
+}
+
+/* الخلفية */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+div::-webkit-scrollbar{
+  height: 0px; /* للتمرير الأفقي */
+  width: 0px; 
+}
+/* مقبض التمرير */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #06b6d4, #10b981); /* لون جميل متدرج */
+  border-radius: 9999px;
+}
+
+/* عند التمرير عليه بالماوس */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #0ea5e9, #10b981);
+}
+
+}
