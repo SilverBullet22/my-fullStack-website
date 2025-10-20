@@ -5,12 +5,7 @@
     { "src": "frontend/dist/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/index.js" },
+    { "src": "/api/(.*)", "dest": "/index.js" },
     { "src": "/(.*)", "dest": "/frontend/dist/$1" }
-  ],
-  "functions": {
-    "api/**": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  ]
 }
