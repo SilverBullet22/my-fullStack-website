@@ -5,8 +5,8 @@
 	"main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "build": "tsc",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,10 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.10",
-    "vercel": "^48.4.0"
+    "vercel": "^48.4.0",
+    "typescript": "^5.6.3",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.30",
+    "@types/multer": "^1.4.7"
   }
 }

@@ -5,13 +5,11 @@ import fs from "fs";
 import dotenv from "dotenv";
 import cors from "cors";
 
-
 dotenv.config();
 
 const app = express();
 app.use(cors());
-app.use(express.json()); // لدعم req.body في POST
-
+app.use(express.json());
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -88,12 +86,10 @@ app.delete("/delete-image/:public_id", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-app.get("/", async(req, res)=>{
-  res.send("helllo")
-})
 
+app.get("/", (req, res) => {
+  res.send("✅ Backend working on Vercel!");
+});
 
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
