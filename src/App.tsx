@@ -2,6 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navigation from './components/Navigation';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -41,6 +42,7 @@ function App() {
     <ThemeProvider>
       <ProjectsProvider>
           <ToastProvider>
+            <ScrollToTop />
             <Navigation/>
             <Routes>
               <Route path="/" element={<><Home /> <Footer/></>} />
